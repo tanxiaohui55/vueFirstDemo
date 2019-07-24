@@ -48,17 +48,16 @@
           tooltip-effect="dark"
           style="width: 100%;font-size:13px"
           @selection-change="handleSelectionChange"
+          :default-sort="{ prop: 'number', order: 'descending' }"
+          @select="tableSelect"
+          @select-all="selectAll"
         >
           <el-table-column type="selection" width="55"> </el-table-column>
-          <el-table-column label="num" width="120">
-            <template slot-scope="scope">{{ scope.row.number }}</template>
+          <el-table-column sortable prop="number" label="num" width="120">
           </el-table-column>
-          <el-table-column
-            prop="name"
-            label="姓名"
-            width="120"
-          ></el-table-column>
-          <el-table-column prop="url" label="网址"> </el-table-column>
+          <el-table-column prop="name" label="姓名" width="120">
+          </el-table-column>
+          <el-table-column sortable prop="url" label="网址"> </el-table-column>
           <el-table-column prop="email" label="邮箱"> </el-table-column>
           <el-table-column prop="address" label="地址"> </el-table-column>
           <el-table-column prop="string" label="星级"> </el-table-column>
@@ -99,7 +98,13 @@ export default {
   methods: {
     handleSelectionChange() {},
     handleClick() {},
-    onSubmit() {}
+    onSubmit() {},
+    tableSelect(selection,row){
+      console.log(selection,row);
+    },
+    selectAll(selection){
+      console.log(selection);
+    }
   },
   mounted() {
     tableData().then(res => {

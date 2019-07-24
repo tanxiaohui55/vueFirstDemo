@@ -59,12 +59,14 @@ export default {
   name: "Header",
   data() {
     return {
-      userName: "",
-      msgCount: 0
+      userName: ""
     };
   },
   computed: {
-    ...mapState(["isCollapse"])
+    ...mapState(["isCollapse"]),
+    msgCount: function() {
+      return this.$store.state.unreadMsgData.length;
+    }
   },
   methods: {
     ...mapActions(["toggleMenu"]),
@@ -77,15 +79,10 @@ export default {
       } else {
         this.$message("click on item " + command);
       }
-    },
-
-    getMsgCount() {
-      this.msgCount = this.$store.state.messgeData.length;
     }
   },
   created() {
     this.userName = localStorage.getItem("_username");
-    this.getMsgCount();
   }
 };
 </script>
