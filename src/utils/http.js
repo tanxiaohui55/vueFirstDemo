@@ -40,7 +40,7 @@ export function fetchPost(url, params) {
             resolve(response);
         }, err => {
             reject(err);
-        }).
+        })
     })
 }
 
