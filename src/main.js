@@ -9,7 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 // 引入echarts
 import Echarts from 'echarts'
 //注入store
-import store from './module/index.js'
+import store from './stroe/index'
 //引入axios
 import axios from"axios"
 import Qs from "qs" //JS的Object与QueryString的转换。

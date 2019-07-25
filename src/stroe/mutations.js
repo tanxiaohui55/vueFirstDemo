@@ -9,7 +9,7 @@ export default {
         for (let i = 0; i < this.state.unreadMsgData.length; i++) {
             if (this.state.unreadMsgData[i].id == index) {
                 var temp = this.state.unreadMsgData.splice(i, 1);
-                this.state.readMsgData.push(temp[0]);
+                this.state.readMsgData.unshift(temp[0]);
             }
 
         }
@@ -17,7 +17,7 @@ export default {
     readAllMsg({ state }) {
         for (let i = 0; i <= this.state.unreadMsgData.length; i++) {
             var temp = this.state.unreadMsgData.splice(0, 1);
-            this.state.readMsgData.push(temp[0]);
+            this.state.readMsgData.unshift(temp[0]);
         }
     }
 }

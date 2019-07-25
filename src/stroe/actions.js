@@ -1,4 +1,4 @@
-import { menuItem } from "../../api/index.js"
+import { menuItem } from "../axios/api"
 export default {
     toggleMenu({ commit }) {
         commit('toggleMenu');

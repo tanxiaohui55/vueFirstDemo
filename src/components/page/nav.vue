@@ -40,9 +40,8 @@
 </template>
 <script>
 import Bus from "../../utils/bus";
-import store from "../../module/index";
 import { mapState, mapActions } from "vuex";
-import { menuItem } from "../../api";
+import { menuItem } from "../../axios/api";
 export default {
   name: "Nav",
   data() {

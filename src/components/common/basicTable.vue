@@ -81,7 +81,7 @@
   </div>
 </template>
 <script>
-import { tableData } from "../../api/index";
+import { tableData } from "../../axios/api";
 export default {
   name: "BasicTable",
   data() {

@@ -11,5 +11,5 @@ export default {
 </script>
 
 <style>
-  @import "./style/public.less"
+  @import "./style/public.css";
 </style>

@@ -18,17 +18,23 @@
             <el-table-column prop="date" fixed="right" width="180">
             </el-table-column>
 
-            <el-table-column  fixed="right" width="100">
+            <el-table-column fixed="right" width="100">
               <template slot-scope="scope">
-                   <el-button type="success" size="small" @click="readMsg(scope.row.id,scope.row)"
-                >标为已读</el-button
-              >
+                <el-button
+                  type="success"
+                  size="small"
+                  @click="readMsg(scope.row.id, scope.row)"
+                  >标为已读</el-button
+                >
               </template>
-             
             </el-table-column>
           </el-table>
           <div style="margin-top:20px">
-            <el-button type="primary" size="small" icon="el-icon-delete" @click="readAllMsg"
+            <el-button
+              type="primary"
+              size="small"
+              icon="el-icon-delete"
+              @click="readAllMsg"
               >全部标为已读</el-button
             >
           </div>
@@ -54,7 +60,7 @@
             >
           </div></el-tab-pane
         >
-        <el-tab-pane :label="'已删消息('+deleteCount+')'" name="third">
+        <el-tab-pane :label="'已删消息(' + deleteCount + ')'" name="third">
           <el-table :data="deleteMsgData" style="width: 100%;font-size:13px;">
             <el-table-column prop="title">
               <template slot-scope="scope">
@@ -80,9 +86,6 @@
   </div>
 </template>
 <script>
-import { apiAddress, textPost } from "../../api/index";
-import https from "../../utils/http.js";
-import Axios from "axios";
 import { mapState } from "vuex";
 
 export default {
@@ -111,7 +114,11 @@ export default {
       this.$store.dispatch('readSingleMsg',index);
     },
     readAllMsg:function(){
-      this.$store.dispatch('readAllMsg');
+      if(this.unreadCount>0){
+        this.$store.dispatch('readAllMsg');
+      }else{
+        this.$message("没消息可读");
+      }
     }
   },
   mounted() {}

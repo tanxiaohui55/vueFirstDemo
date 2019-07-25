@@ -1,4 +1,4 @@
-import { fetchGet,fetchPost} from "../utils/http";
+import { fetchGet,fetchPost} from "./http";
 
 // 调用方式见tab.vue
 export const apiAddress = () => fetchGet('/restful/:id/list');

@@ -13,10 +13,6 @@
   .clearfix:after {
     clear: both;
   }
-  /* .box-card {
-    width: 100%;
-  } */
-  /*  elementui css end*/
   .box {
     margin: 15px 7px;
   }
