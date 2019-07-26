@@ -7,12 +7,12 @@
       @open="handleOpen"
       @close="handleClose"
       :collapse="isCollapse"
-      background-color="#777"
-      text-color="#ddd"
+      background-color="#F9FAFE"
+      text-color="#666"
       router
     >
       <template v-for="menu in menuItem">
-        <template v-if="menu.subs">
+        <template v-if="menu.subs && menu.has == true">
           <el-submenu :index="menu.index" :key="menu.index">
             <!-- slot="title"用于显示为标题项，不能丢 -->
             <template slot="title">
@@ -21,14 +21,16 @@
             </template>
             <template v-for="item in menu.subs">
               <!-- <el-menu-item-group> -->
-              <el-menu-item :index="item.index" :key="item.index">
-                &nbsp;&nbsp;&nbsp;&nbsp;{{ item.title }}
-              </el-menu-item>
+              <el-menu-item
+                v-if="item.has == true"
+                :index="item.index"
+                :key="item.index"
+              >&nbsp;&nbsp;&nbsp;&nbsp;{{ item.title }}</el-menu-item>
               <!-- </el-menu-item-group> -->
             </template>
           </el-submenu>
         </template>
-        <template v-else>
+        <template v-else-if="menu.has == true">
           <el-menu-item :index="menu.index" :key="menu.index">
             <i :class="menu.icon"></i>
             <span slot="title">{{ menu.title }}</span>
@@ -45,12 +47,7 @@ import { menuItem } from "../../axios/api";
 export default {
   name: "Nav",
   data() {
-    return {
-      // isCollapse:store.state.isCollapse,
-      // isCollapse: false,
-      loading: true,
-      menuItems: []
-    };
+    return {};
   },
   methods: {
     handleOpen(key, keyPath) {
@@ -66,10 +63,10 @@ export default {
     onRoutes: function() {
       return this.$route.path.replace("/index/", "");
     },
-    // isCollapse(){
-    //   return store.state.isCollapse
-    // },
-    ...mapState(["isCollapse", ["menuItem"]])
+    ...mapState(["isCollapse", "menuItem"]),
+    loading: function() {
+      return this.menuItem.length ? false : true;
+    }
   },
   created() {
     // menuItem().then(res=>{
@@ -77,10 +74,8 @@ export default {
     //   this.$store.dispatch('setMenu');
     // })
   },
-  mounted() {
-    this.$store.dispatch("setMenu").then(() => {
-      this.loading = false;
-    });
+  beforeCreate() {
+    this.$store.dispatch("setMenu").then(() => {});
   }
 };
 </script>
@@ -92,6 +87,6 @@ export default {
 }
 .container {
   height: 100% !important;
-  background: #777;
+  background: #f9fafe;
 }
 </style>

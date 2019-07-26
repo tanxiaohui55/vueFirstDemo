@@ -2,11 +2,11 @@
   <div class="box">
     <div class="title">
       <i class="el-icon-circle-plus"></i>
-      <span> {{ this.$route.meta.title }} </span>
+      <span>{{ this.$route.meta.title }}</span>
     </div>
     <el-card class="box-card">
       <el-form ref="form" :model="form" :rules="rules" label-width="80px" style="width:50% ">
-        <el-form-item label="活动名称" prop="name"  placeholder="活动名称">
+        <el-form-item label="活动名称" prop="name" placeholder="活动名称">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item label="活动区域">
@@ -26,11 +26,7 @@
           </el-col>
           <el-col class="line" :span="2">-</el-col>
           <el-col :span="11">
-            <el-time-picker
-              placeholder="选择时间"
-              v-model="form.date2"
-              style="width: 100%;"
-            ></el-time-picker>
+            <el-time-picker placeholder="选择时间" v-model="form.date2" style="width: 100%;"></el-time-picker>
           </el-col>
         </el-form-item>
         <el-form-item label="即时配送">
@@ -58,6 +54,15 @@
           <el-button>取消</el-button>
         </el-form-item>
       </el-form>
+      <el-popover
+        placement="top-start"
+        title="标题"
+        width="200"
+        trigger="hover"
+        content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+      >
+        <el-button slot="reference">hover 激活</el-button>
+      </el-popover>
     </el-card>
   </div>
 </template>
@@ -77,15 +82,17 @@ export default {
         desc: ""
       },
       rules: {
-          name: [
-            { required: true, message: '请输入活动名称', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-          ]
+        name: [
+          { required: true, message: "请输入活动名称", trigger: "blur" },
+          { min: 3, max: 5, message: "长度在 3 到 5 个字符", trigger: "blur" }
+        ]
       }
     };
   },
-  methods:{
-    onSubmit:function (){}
+  methods: {
+    onSubmit: function() {
+      this.$message(this.form.toString());
+    }
   }
 };
 </script>

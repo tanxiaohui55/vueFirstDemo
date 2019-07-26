@@ -1,6 +1,6 @@
 # my-demo
 
-> A Vue.js project
+> A Vue.js project (vue + vuex + vue-router + axios + element-ui)
 
 ## Build Setup
 

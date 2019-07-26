@@ -2,7 +2,7 @@
   <div class="box">
     <div class="title">
       <i class="el-icon-upload"></i>
-      <span> {{componentName}} </span>
+      <span>{{componentName}}</span>
     </div>
     <div class="body">
       <!-- top -->
@@ -13,9 +13,7 @@
               <el-card class="box-card">
                 <div slot="header" class="clearfix">
                   <span>卡片名称</span>
-                  <el-button style="float: right; padding: 3px 0" type="text"
-                    >操作按钮</el-button
-                  >
+                  <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
                 </div>
                 <p>this is card</p>
               </el-card>
@@ -24,19 +22,14 @@
               <el-card class="box-card">
                 <div slot="header" class="clearfix">
                   <span>卡片名称</span>
-                  <el-button style="float: right; padding: 3px 0" type="text"
-                    >操作按钮</el-button
-                  >
+                  <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
                 </div>
                 <div class="cBody">
                   <el-progress :percentage="50"></el-progress>
                   <el-progress :percentage="100" :format="format"></el-progress>
                   <el-progress :percentage="100" status="success"></el-progress>
                   <el-progress :percentage="100" status="warning"></el-progress>
-                  <el-progress
-                    :percentage="50"
-                    status="exception"
-                  ></el-progress>
+                  <el-progress :percentage="50" status="exception"></el-progress>
                 </div>
               </el-card>
             </el-col>
@@ -45,10 +38,14 @@
         <el-col :span="16">
           <el-row :gutter="20" class="dege">
             <el-col :span="8">
-              <el-card class="box-card primary"> </el-card>
+              <el-card class="box-card primary"></el-card>
             </el-col>
-            <el-col :span="8"><el-card class="box-card Success"> </el-card> </el-col>
-            <el-col :span="8"><el-card class="box-card Warning"> </el-card></el-col>
+            <el-col :span="8">
+              <el-card class="box-card Success"></el-card>
+            </el-col>
+            <el-col :span="8">
+              <el-card class="box-card Warning"></el-card>
+            </el-col>
           </el-row>
           <div class="marginTop">
             <el-card class="box-card">
@@ -66,16 +63,9 @@
                     { text: '2016-05-04', value: '2016-05-04' }
                   ]"
                   :filter-method="filterHandler"
-                >
-                </el-table-column>
-                <el-table-column prop="name" label="姓名" width="180">
-                </el-table-column>
-                <el-table-column
-                  prop="address"
-                  label="地址"
-                  :formatter="formatter"
-                >
-                </el-table-column>
+                ></el-table-column>
+                <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+                <el-table-column prop="address" label="地址" :formatter="formatter"></el-table-column>
                 <el-table-column
                   prop="tag"
                   label="标签"
@@ -91,8 +81,7 @@
                     <el-tag
                       :type="scope.row.tag === '家' ? 'primary' : 'success'"
                       disable-transitions
-                      >{{ scope.row.tag }}</el-tag
-                    >
+                    >{{ scope.row.tag }}</el-tag>
                   </template>
                 </el-table-column>
               </el-table>
@@ -122,12 +111,12 @@
 </template>
 <script>
 var echarts = require("echarts");
-import {mapState} from 'vuex'
+import { mapState } from "vuex";
 export default {
   name: "",
   data() {
     return {
-      componentName:this.$route.meta.title
+      componentName: this.$route.meta.title
     };
   },
   methods: {
@@ -413,8 +402,8 @@ export default {
     myChartBar.setOption(barOption);
     myChartLine.setOption(lineOption);
   },
-  computed:{
-    ...mapState(['tableData'])
+  computed: {
+    ...mapState(["tableData"])
   }
 };
 </script>
@@ -438,7 +427,7 @@ export default {
 .dege .box-card {
   height: 50px;
   width: 100%;
-  opacity: .3;
+  opacity: 0.3;
 }
 .bottom {
   height: 300px;

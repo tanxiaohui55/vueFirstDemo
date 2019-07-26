@@ -8,14 +8,12 @@
         @close="handleClose(index)"
         :class="{ active: isActive(tag.path) }"
       >
-        <router-link :to="tag.path"> {{ tag.title }}</router-link>
+        <router-link :to="tag.path">{{ tag.title }}</router-link>
       </el-tag>
     </div>
     <div class="close">
       <el-dropdown :hide-on-click="false" @command="handleTags">
-        <span class="el-dropdown-link">
-          关闭标签
-        </span>
+        <span class="el-dropdown-link">关闭标签</span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="other">关闭其他</el-dropdown-item>
           <el-dropdown-item command="all">关闭所有</el-dropdown-item>

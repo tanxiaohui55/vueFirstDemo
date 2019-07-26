@@ -36,8 +36,7 @@ export default {
   display: flex;
   /* 两个因子同运算符号之间必须存在空格 */
   /* height: calc(100% - 60px); */
-  min-height: calc(100% - 60px); 
-
+  min-height: calc(100% - 60px);
 }
 .content {
   flex: 1;

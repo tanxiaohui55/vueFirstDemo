@@ -15,10 +15,7 @@
 
       <div class="messag" v-if="msgCount > 0">
         <el-badge is-dot class="item">
-          <el-tooltip
-            :content="'您有' + msgCount + '条消息'"
-            placement="bottom"
-          >
+          <el-tooltip :content="'您有' + msgCount + '条消息'" placement="bottom">
             <router-link to="/index/tabs">
               <i class="el-icon-bell"></i>
             </router-link>
@@ -45,7 +42,7 @@
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="about">关于我</el-dropdown-item>
             <el-dropdown-item command="toggle">切换用户</el-dropdown-item>
-            <el-dropdown-item command="cancel"> 退出登录</el-dropdown-item>
+            <el-dropdown-item command="cancel">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -98,7 +95,7 @@ export default {
   height: 60px;
   /* line-height: 60px; */
   color: white;
-  background: rgb(95, 94, 94);
+  background: #409eff;
   display: flex;
   justify-content: space-between;
   align-items: center;
