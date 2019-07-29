@@ -81,7 +81,7 @@
       <h4>git</h4>
       <p>
         <a href="https://github.com/" title="https://github.com/">github</a>
-        <br />git代码版本控制
+        <br />git代码版本控制&nbsp;&nbsp;<code>git@github.com:tanxiaohui55/vueFirstDemo.git</code>
         <br />
       </p>
     </el-card>

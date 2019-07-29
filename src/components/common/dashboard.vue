@@ -413,7 +413,7 @@ export default {
     // 绘制图表
     myChartBar.setOption(barOption);
     myChartLine.setOption(lineOption);
-    this.getWeater();
+    // this.getWeater();
   },
   computed: {
     ...mapState(["tableData"])
