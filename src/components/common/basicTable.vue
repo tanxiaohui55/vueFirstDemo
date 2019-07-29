@@ -80,7 +80,7 @@
                   <el-button size="mini" type="text">取消</el-button>
                   <el-button type="primary" size="mini">确定</el-button>
                 </div>
-                <el-button type="text" slot="reference" icon=" el-icon-zoom-in"></el-button>
+                <el-button type="text" slot="reference" icon=" el-icon-delete"></el-button>
               </el-popover>
             </template>
           </el-table-column>

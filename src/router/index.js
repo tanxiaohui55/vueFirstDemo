@@ -9,7 +9,8 @@ import Index from "../components/page/Index";
 import BasicTable from "../components/common/basicTable";
 import Tab from "../components/common/Tab";
 import Permissions from "../components/common/permissions";
-import BasicForm from "../components/common/basicForm"
+import BasicForm from "../components/common/basicForm";
+import About from "../components/common/about"
 
 Vue.use(Router);
 
@@ -31,7 +32,8 @@ export default new Router({
                 { path: "basicTable", name: "basicTable", component: BasicTable, meta: { title: "基础表格" } },
                 { path: "tabs", name: "tabs", component: Tab, meta: { title: "tab选项卡" } },
                 { path: "permissions", name: "permissions", component: Permissions, meta: { title: "权限设置" } },
-                { path: 'basicForm', name:'basicForm', component: BasicForm ,meta:{title:'表单相关/基本表单'}}
+                { path: 'basicForm', name:'basicForm', component: BasicForm ,meta:{title:'表单相关/基本表单'}},
+                {path:'about',name:'about',component:About,meta:{title:'reade me'}}
             ]
         },
         { path: "*", component: Error404 },

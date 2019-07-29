@@ -112,6 +112,7 @@
 <script>
 var echarts = require("echarts");
 import { mapState } from "vuex";
+import axios from "axios";
 export default {
   name: "",
   data() {
@@ -138,6 +139,17 @@ export default {
     filterHandler(value, row, column) {
       const property = column["property"];
       return row[property] === value;
+    },
+    getWeater() {
+      axios
+        .get(
+          'http://v.juhe.cn/weather/index?cityname=%E9%87%8D%E5%BA%86&dtype=&format=1&key=89cc3ca07491fed2d647c10856971c5fs'
+        )
+        .then((response) => {
+          console.log(response);
+        }).catch(err=>{
+          console.log(err);
+        });
     }
   },
   mounted() {
@@ -401,6 +413,7 @@ export default {
     // 绘制图表
     myChartBar.setOption(barOption);
     myChartLine.setOption(lineOption);
+    this.getWeater();
   },
   computed: {
     ...mapState(["tableData"])

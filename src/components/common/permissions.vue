@@ -10,6 +10,20 @@
         <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
       </div>
       <div class="cardBody" style="margin-left:30px">
+        <el-form :inline="true" :model="formSearch" class="demo-form-inline">
+          <el-form-item>
+            <el-select v-model="formSearch.name" placeholder="选择用户" size="small">
+              <el-option label="区域一" value="shanghai"></el-option>
+              <el-option label="区域二" value="beijing"></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item>
+            <el-input v-model="formSearch.key" placeholder="筛选关键词" size="small"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" icon="el-icon-search" size="small">查询</el-button>
+          </el-form-item>
+        </el-form>
         <el-tree
           :data="menuItem"
           show-checkbox
@@ -41,6 +55,10 @@ export default {
       defaultProps: {
         children: "subs",
         label: "title"
+      },
+       formSearch: {
+        name: "",
+        key: ""
       }
     };
   },
